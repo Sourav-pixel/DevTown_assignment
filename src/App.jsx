@@ -10,19 +10,15 @@ import {
   ProductPrice,
 } from './components/ProductList';
 
-const AppContainer = styled.div`
-  max-width: 100vw;
-`;
 
 const Navbar = styled.nav`
-  background-color: #4a90e2;
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+background-color: #4a90e2;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: sticky;
+padding: 1rem; 
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const SearchBar = styled.input`
@@ -140,9 +136,19 @@ const App = () => {
     setFilteredProducts(filteredAndSearchedProducts);
   };
 
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
+const handleCategoryChange = (e) => {
+  const selectedCategory = e.target.value;
+  setCategory(selectedCategory);
+
+  // Filter products based on the selected category
+  const filteredByCategory = products.filter((product) =>
+    selectedCategory ? product.category === selectedCategory : true
+  );
+
+  // Apply the category filter to the filteredProducts
+  setFilteredProducts(filteredByCategory);
+  setCurrentPage(1); // Reset to the first page when changing the category
+};
 
   const handlePageChange = (page) => {
   
@@ -173,8 +179,8 @@ const App = () => {
     setFilteredProducts(updatedFilteredProducts);
   };
 
-  return (
-    <AppContainer>
+  return (<>
+  
       <Navbar>
         <div style={{marginLeft: '20px'}}>
         <h1 style={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>DevTown</h1>
@@ -221,7 +227,7 @@ const App = () => {
           </button>
         ))}
       </Pagination>
-    </AppContainer>
+  </>
   );
 };
 
