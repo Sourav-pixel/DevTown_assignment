@@ -16,7 +16,6 @@ This is a simple web application built with React that displays a list of produc
 - React: A JavaScript library for building user interfaces.
 - Axios: A promise-based HTTP client for making API requests.
 - Styled Components: A CSS-in-JS library for styling React components.
-- Tailwind CSS: A utility-first CSS framework for fast and responsive web development.
 - Vite: A build tool for modern web development, optimized for development and production.
 
 ## Installation
@@ -24,11 +23,11 @@ This is a simple web application built with React that displays a list of produc
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/product-list-app.git
+   git clone git@github.com:Sourav-pixel/DevTown_assignment.git
 
 2. Navigate to the project directory:
 
-cd product-list-app
+cd DevTown_assignment
 
 3.Install the project dependencies:
 
